@@ -1,0 +1,47 @@
+[
+  {
+    "id": 1,
+    "nombre": "Planta uno",
+    "precio": 100,
+    "img": "/img/planta1.png",
+    "descripcion": "Esta es nuestra primera planta a la venta",
+    "stock": 1,
+    "categoria": "Categoria uno"
+  },
+  {
+    "id": 2,
+    "nombre": "Planta dos",
+    "precio": 200,
+    "img": "/img/planta2.png",
+    "descripcion": "Esta es nuetra segunda planta a la venta",
+    "stock": 4,
+    "categoria": "Categoria dos"
+  },
+  {
+    "id": 3,
+    "nombre": "Planta tres",
+    "precio": 300,
+    "img": "/img/planta3.png",
+    "descripcion": "Esta es nuestra tercera planta a la venta",
+    "stock": 7,
+    "categoria": "Categoria tres"
+  },
+  {
+    "id": 4,
+    "nombre": "Planta cuatro",
+    "precio": 400,
+    "img": "/img/planta4.png",
+    "descripcion": "Esta es nuestra cuarta planta a la venta",
+    "stock": 10,
+    "categoria": "Categoria cuatro"
+  },
+  {
+    "id": 5,
+    "nombre": "Planta cinco",
+    "precio": 500,
+    "img": "/img/planta5.png",
+    "descripcion": "Esta es nuestra quinta planta a la venta",
+    "stock": 12,
+    "categoria": "Categoria cinco"
+  }
+]
