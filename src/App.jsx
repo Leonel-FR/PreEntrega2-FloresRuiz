@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer";
 import Contacto from "./components/Contacto/Contacto";
 import Ubicacion from "./components/Ubicacion/Ubicacion";
 import Error from "./components/Error/Error";
+import Cart from "./components/Cart/Cart";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
           <Route path="/Contacto" element={<Contacto />} />
           <Route path="/Ubicacion" element={<Ubicacion />} />
           <Route path="*" element={<Error />} />
+          <Route path="/Cart" element={<Cart />} />
         </Routes>
 
         <Footer />

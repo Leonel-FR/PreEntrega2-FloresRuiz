@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+import "./item.css";
 const Item = ({ product }) => {
   return (
     <>
@@ -7,7 +8,7 @@ const Item = ({ product }) => {
           <h1>{product.nombre}</h1>
         </Link>
 
-        <img src={product.img} alt={product.nombre} />
+        <img src={product.img} alt={product.nombre} className="images" />
       </div>
     </>
   );

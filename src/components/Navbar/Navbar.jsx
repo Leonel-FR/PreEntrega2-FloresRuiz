@@ -1,5 +1,6 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
+import "./navbar.css";
 const Navbar = () => {
   const enlaces = [
     "Categoria uno",
@@ -12,19 +13,21 @@ const Navbar = () => {
   ];
 
   return (
-    <div>
-      <Link to="/">
+    <div className="nav">
+      <Link className="link" to={"/"}>
         <p>LOGO</p>
       </Link>
 
-      <ul>
+      <ul className="linksContainer">
         {enlaces.map((e, id) => (
-          <li key={id}>
-            <Link to={`${e}`}>{e}</Link>
+          <li className="liContainer" key={id}>
+            <NavLink activeclassname="active" to={`${e}`}>
+              {e}
+            </NavLink>
           </li>
         ))}
       </ul>
-      <CartWidget />
+      <CartWidget className="cart" />
     </div>
   );
 };

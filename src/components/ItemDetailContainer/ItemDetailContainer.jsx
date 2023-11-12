@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ItemDetail from "../ItemDetail/ItemDetail";
+import "./itemDetailContainer.css";
 
 const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
@@ -22,7 +23,7 @@ const ItemDetailContainer = () => {
     fetchData();
   }, [idProduct]);
   return (
-    <div>
+    <div className="cardContainer">
       {product ? <ItemDetail producto={product} /> : <p>CARGANDO...</p>}
     </div>
   );

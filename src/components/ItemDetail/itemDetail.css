@@ -1,0 +1,16 @@
+.detailContainer {
+  border-width: medium;
+  border-color: aliceblue;
+  border-style: solid;
+  background-color: #6bb77b;
+  border-radius: 15px;
+}
+
+.detailContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 10px;
+  box-shadow: 0 0 25px darkgreen;
+}
