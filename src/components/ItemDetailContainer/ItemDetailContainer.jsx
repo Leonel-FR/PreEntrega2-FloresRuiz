@@ -7,15 +7,13 @@ const ItemDetailContainer = () => {
   const [product, setProduct] = useState(null);
 
   const { idProduct } = useParams();
-  console.log(idProduct);
 
   useEffect(() => {
     const fetchData = () => {
       return fetch("/data/productos.json")
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
-          const foundProduct = data.find((item) => item.id == idProduct);
+          const foundProduct = data.find((item) => item.id === idProduct);
           setProduct(foundProduct);
         })
         .catch((error) => console.log(error));

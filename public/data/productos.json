@@ -13,7 +13,7 @@
     "nombre": "Planta dos",
     "precio": 200,
     "img": "/img/planta2.png",
-    "descripcion": "Esta es nuetra segunda planta a la venta",
+    "descripcion": "Esta es nuestra segunda planta a la venta",
     "stock": 4,
     "categoria": "Categoria dos"
   },
