@@ -8,24 +8,15 @@ import Contacto from "./components/Contacto/Contacto";
 import Ubicacion from "./components/Ubicacion/Ubicacion";
 import Error from "./components/Error/Error";
 import Cart from "./components/Cart/Cart";
+import Checkout from "./components/Checkout/Checkout";
+//Paso 04: Importar el proveedor del contexto
 import { CartProvider } from "./context/CartContext.JSX";
-import { getFirestore, collection, getDocs } from "firebase/firestore";
-import { useEffect, useState } from "react";
-function App() {
-  const [product, setProduct] = useState(null);
 
-  useEffect(() => {
-    const db = getFirestore();
-    const collectionRef = collection(db, "productos");
-    getDocs(collectionRef).then((snapshot) => {
-      setProduct(snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() })));
-    });
-  }, []);
-  console.log(product);
+function App() {
   return (
     <>
-      {/*
       <BrowserRouter>
+        {/*Paso 05: Englobar la aplicacion con el contexto*/}
         <CartProvider>
           <Navbar />
 
@@ -37,12 +28,12 @@ function App() {
             <Route path="/Ubicacion" element={<Ubicacion />} />
             <Route path="*" element={<Error />} />
             <Route path="/Cart" element={<Cart />} />
+            <Route path="/Checkout" element={<Checkout />} />
           </Routes>
 
           <Footer />
         </CartProvider>
       </BrowserRouter>
-  */}
     </>
   );
 }

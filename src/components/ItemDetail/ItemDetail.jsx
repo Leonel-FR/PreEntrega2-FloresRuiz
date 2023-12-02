@@ -1,13 +1,13 @@
 import { Link } from "react-router-dom";
 import ItemCount from "../ItemCount/ItemCount";
-import { useState } from "react";
+import { useContext, useState } from "react";
 import "./itemDetail.css";
+//Paso 06: Importar la instancia del contexto
 import { CartContext } from "../../context/CartContext.JSX";
-import { useContext } from "react";
 
 const ItemDetail = ({ producto }) => {
   const [quantity, setQuantity] = useState(0);
-
+  //Paso 07: Implementar el useContext para consumir el contexto
   const { addToCart } = useContext(CartContext);
 
   const onAdd = (cantidad) => {

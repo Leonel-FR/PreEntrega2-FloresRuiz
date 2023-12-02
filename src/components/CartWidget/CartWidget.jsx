@@ -1,10 +1,10 @@
 import { AiOutlineShoppingCart } from "react-icons/ai";
+import { Link } from "react-router-dom";
 import { CartContext } from "../../context/CartContext.JSX";
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 
 const CartWidget = () => {
-  const { getTotalItems } = useContext(CartContext);
+  const { cantidadTotal } = useContext(CartContext);
   return (
     <div>
       <>
@@ -12,7 +12,7 @@ const CartWidget = () => {
           <AiOutlineShoppingCart />
         </Link>
 
-        <p>{getTotalItems()}</p>
+        <p>{cantidadTotal}</p>
       </>
     </div>
   );

@@ -1,57 +1,73 @@
-import { useState, createContext } from "react";
+import { createContext, useState } from "react";
+
+//Paso 01: Crear la instancia del contexto
 export const CartContext = createContext();
 
+//Paso 02: Crear el provider
 export const CartProvider = ({ children }) => {
-  //Estado global que analiza el carrito de compras
+  //Paso 08: Crear el carrito, cantidad y el total
   const [cart, setCart] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [cantidadTotal, setCantidadTotal] = useState(0);
 
-  //Funcion que se encargue de agregar productos al carrito
+  //Paso 09: Funcionalidades del carrito
+  //Funcion encargada de agregar al carrito
   const addToCart = (producto, cantidad) => {
-    if (!isInCart(producto.id)) {
+    const productoExistente = cart.find(
+      (prod) => prod.producto.id === producto.id
+    );
+    if (!productoExistente) {
       setCart((prev) => [...prev, { producto, cantidad }]);
+      setCantidadTotal((prev) => prev + cantidad);
+      setTotal((prev) => prev + producto.precio * cantidad);
     } else {
-      console.log("No se puede agregar mas");
+      const carritoActualizado = cart.map((prod) => {
+        if (prod.producto.id === producto.id) {
+          return { ...prod, cantidad: prod.cantidad + cantidad };
+        } else {
+          return prod;
+        }
+      });
+      setCart(carritoActualizado);
+      setCantidadTotal((prev) => prev + cantidad);
+      setTotal((prev) => prev + producto.precio * cantidad);
     }
   };
 
-  //Funcion que determina si el producto ya esta en el carrito
-  const isInCart = (itemId) => {
-    return cart.some((i) => i.item.id === itemId);
-  };
-
-  //Funcion para saber la cantidad total de productos agregados al carrtito
-  const getTotalItems = () => {
-    let total = 0;
-    cart.forEach((e) => (total += e.cantidad));
-    return total;
-  };
-
   //Funcion encargada de remover productos del carrito
-  const removeItems = (id) => {
-    const filtrarCarrito = cart.filter((item) => item.producto.id !== id);
-    setCart(filtrarCarrito);
+  const removeItem = (id) => {
+    const productoEliminado = cart.find((prod) => prod.producto.id == id);
+    const carritoActualizado = cart.filter((prod) => prod.producto.id !== id);
+
+    setCart(carritoActualizado);
+    setCantidadTotal((prev) => prev - productoEliminado.cantidad);
+    setTotal(
+      (prev) =>
+        prev - productoEliminado.producto.precio * productoEliminado.cantidad
+    );
   };
 
   //Funcion encargada de limpiar el carrito
   const clearCart = () => {
     setCart([]);
+    setCantidadTotal(0);
+    setTotal(0);
   };
+  //Cuerpo del contexto
 
   return (
-    <div>
-      <CartContext.Provider
-        value={{
-          cart,
-          setCart,
-          addToCart,
-          isInCart,
-          getTotalItems,
-          removeItems,
-          clearCart,
-        }}
-      >
-        {children}
-      </CartContext.Provider>
-    </div>
+    //Paso 03: Compartir las diferentes funcionalidades en el contexto
+    <CartContext.Provider
+      value={{
+        cart,
+        total,
+        cantidadTotal,
+        addToCart,
+        removeItem,
+        clearCart,
+      }}
+    >
+      {children}
+    </CartContext.Provider>
   );
 };

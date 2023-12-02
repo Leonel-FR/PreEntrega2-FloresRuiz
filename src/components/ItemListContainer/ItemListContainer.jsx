@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import ItemList from "../ItemList/ItemList";
-import { MutatingDots } from "react-loader-spinner";
 import "./itemListContainer.css";
 
 const ItemListContainer = () => {
@@ -29,7 +28,7 @@ const ItemListContainer = () => {
         .catch((error) => console.log(error))
         .finally(() => setLoading(false));
     };
-    setTimeout(() => fetchdata(), 3000);
+    setTimeout(() => fetchdata(), 1000);
   }, [categoryId]);
   return (
     <>
