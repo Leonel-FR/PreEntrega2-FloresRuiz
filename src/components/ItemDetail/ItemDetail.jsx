@@ -17,7 +17,7 @@ const ItemDetail = ({ producto }) => {
 
   return (
     <div className="detailContainer">
-      <img src={producto.img} alt={producto.nombre} className="images" />
+      <img src={producto.img} alt={producto.nombre} id="images" />
       <h2>{producto.nombre}</h2>
       <p>Stock: {producto.stock}</p>
       <p>Precio: {producto.precio}</p>
@@ -26,7 +26,9 @@ const ItemDetail = ({ producto }) => {
       {quantity == 0 ? (
         <ItemCount initial={1} stock={producto.stock} onAdd={onAdd} />
       ) : (
-        <Link to="/Cart">Ir al carrito</Link>
+        <button id="irCarrito">
+          <Link to="/Cart">Ir al carrito</Link>
+        </button>
       )}
     </div>
   );

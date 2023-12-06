@@ -8,6 +8,7 @@ import {
 } from "firebase/firestore";
 import { useState, useContext } from "react";
 import { CartContext } from "../../context/CartContext.JSX";
+import "./checkout.css";
 const Checkout = () => {
   //Campos del formulario
   const [nombre, setNombre] = useState("");
@@ -89,7 +90,7 @@ const Checkout = () => {
     <div>
       <h2>Ingresa tus datos</h2>
 
-      <form onSubmit={manejadorFormulario}>
+      <form onSubmit={manejadorFormulario} className="form">
         {/*Mapear los productos*/}
         {cart.map((producto) => (
           <div key={producto.producto.id}>
@@ -106,22 +107,41 @@ const Checkout = () => {
 
         <div>
           <label htmlFor="">Nombre</label>
-          <input type="text" onChange={(e) => setNombre(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setNombre(e.target.value)}
+            placeholder="Tu nombre"
+            maxLength={12}
+          />
         </div>
 
         <div>
           <label htmlFor="">Apellido</label>
-          <input type="text" onChange={(e) => setApellido(e.target.value)} />
+          <input
+            type="text"
+            onChange={(e) => setApellido(e.target.value)}
+            placeholder="Tu apellido"
+            maxLength={25}
+          />
         </div>
 
         <div>
           <label htmlFor="">Telefono</label>
-          <input type="number" onChange={(e) => setTelefono(e.target.value)} />
+          <input
+            type="number"
+            onChange={(e) => setTelefono(e.target.value)}
+            placeholder="Tu telefono"
+            maxLength={5} //No funciona para el input de tipo number
+          />
         </div>
 
         <div>
           <label htmlFor="">Email</label>
-          <input type="email" onChange={(e) => setEmail(e.target.value)} />
+          <input
+            type="email"
+            onChange={(e) => setEmail(e.target.value)}
+            placeholder="Tu email"
+          />
         </div>
 
         <div>
@@ -129,6 +149,7 @@ const Checkout = () => {
           <input
             type="email"
             onChange={(e) => setEmailConfirmation(e.target.value)}
+            placeholder="Tu email nuevamente"
           />
         </div>
 

@@ -1,8 +1,13 @@
+import "./cartItem.css";
 const CartItem = ({ cartItem, removeItem }) => {
   return (
-    <div>
+    <div className="cartItem">
       <div key={cartItem.producto.id}>
-        <img src={cartItem.producto.img} alt={cartItem.producto.nombre} />
+        <img
+          src={cartItem.producto.img}
+          alt={cartItem.producto.nombre}
+          id="images"
+        />
         <h1>{cartItem.producto.nombre}</h1>
         <p>{cartItem.producto.descripcion}</p>
         <p>Precio: ${cartItem.producto.precio}</p>

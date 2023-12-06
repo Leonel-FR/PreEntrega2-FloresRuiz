@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { CartContext } from "../../context/CartContext.JSX";
 import CartItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
+import "./cart.CSS";
 const Cart = () => {
   const { cart, total, clearCart, removeItem } = useContext(CartContext);
   console.log(cart);
@@ -15,7 +16,7 @@ const Cart = () => {
           <Link to={"/"}>Ir al inicio</Link>
         </div>
       ) : (
-        <div>
+        <div className="cartContainer">
           {cart.map((p) => (
             <CartItem
               key={p.producto.id}
