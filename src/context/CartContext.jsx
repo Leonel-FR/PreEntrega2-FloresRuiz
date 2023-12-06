@@ -71,3 +71,4 @@ export const CartProvider = ({ children }) => {
     </CartContext.Provider>
   );
 };
+//CartContext funcionando 100%
