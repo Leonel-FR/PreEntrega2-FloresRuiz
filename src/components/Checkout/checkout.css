@@ -24,3 +24,9 @@ input {
   font-size: 1.3rem;
   line-height: 1.2;
 }
+
+hr {
+  border: 12px dotted rgb(162, 241, 175);
+  border-bottom: 0cap;
+  width: 200px;
+}

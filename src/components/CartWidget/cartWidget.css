@@ -1,0 +1,16 @@
+.cartQuantity,
+.cart {
+  color: black;
+}
+
+.cart {
+  position: relative;
+  top: 20px;
+  left: 30px;
+  bottom: 1;
+}
+
+.cartQuantity {
+  position: relative;
+  left: 30px;
+}

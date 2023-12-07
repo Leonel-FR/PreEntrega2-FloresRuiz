@@ -1,7 +1,7 @@
 const Footer = () => {
   return (
     <div>
-      <h1>FOOTER</h1>
+      <h1>Las mejores plantas en linea</h1>
     </div>
   );
 };

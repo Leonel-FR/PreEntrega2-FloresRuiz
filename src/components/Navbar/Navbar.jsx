@@ -2,20 +2,12 @@ import { Link, NavLink } from "react-router-dom";
 import CartWidget from "../CartWidget/CartWidget";
 import "./navbar.css";
 const Navbar = () => {
-  const enlaces = [
-    "Categoria uno",
-    "Categoria dos",
-    "Categoria tres",
-    "Categoria cuatro",
-    "Categoria cinco",
-    "Contacto",
-    "Ubicacion",
-  ];
+  const enlaces = ["De escritorio", "Para la sala", "Artificiales"];
 
   return (
     <div className="nav">
       <Link className="link" to={"/"}>
-        <p>LOGO</p>
+        <p>Plantas.com</p>
       </Link>
 
       <ul className="linksContainer">
